@@ -56,7 +56,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace PlcAgentLicenceGenerator.BlowFish
+namespace PlcAgentLicenseGenerator.BlowFish
 {
     class BlowFish
     {

@@ -7,8 +7,8 @@
     <ProjectGuid>{B560313D-A621-49CF-975C-0823D42E1E8F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PlcAgentLicenceGenerator</RootNamespace>
-    <AssemblyName>PlcAgentLicenceGenerator</AssemblyName>
+    <RootNamespace>PlcAgentLicenseGenerator</RootNamespace>
+    <AssemblyName>PlcAgentLicenseGenerator</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -72,7 +72,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BlowFish\blowfish.cs" />
+    <Compile Include="BlowFish\BlowFish.cs" />
     <Compile Include="Signature\HexKey.cs" />
     <Compile Include="Signature\SignatureHandler.cs" />
     <Page Include="MainWindow.xaml">

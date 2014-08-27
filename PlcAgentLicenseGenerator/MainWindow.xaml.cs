@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using System.Windows;
-using PlcAgentLicenceGenerator.Signature;
+using PlcAgentLicenseGenerator.Signature;
 
-namespace PlcAgentLicenceGenerator
+namespace PlcAgentLicenseGenerator
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -38,12 +38,12 @@ namespace PlcAgentLicenceGenerator
 
         #region EventHandlers
 
-        private void GenerateLicence(object sender, RoutedEventArgs e)
+        private void GenerateLicense(object sender, RoutedEventArgs e)
         {
             StatusLabel.Content = "...";
 
             // Create the new, empty data file.
-            const string fileName = @"licence.lic";
+            const string fileName = @"license.lic";
             if (File.Exists(fileName)) File.Delete(fileName);
 
             var fs = new FileStream(fileName, FileMode.CreateNew);
@@ -69,11 +69,11 @@ namespace PlcAgentLicenceGenerator
             fs.Close();
 
             if (Equals(_signature, _blowFishEncryptor.Decrypt_CTR(storedSignature)))
-                StatusLabel.Content = "licence file has been created for: " + storedName;
+                StatusLabel.Content = "license file has been created for: " + storedName;
             else
             {
                 File.Delete(fileName);
-                StatusLabel.Content = "licence creation failed";
+                StatusLabel.Content = "license creation failed";
             }
         }
 
