@@ -10,7 +10,7 @@ using System.Windows;
 [assembly: AssemblyTitle("PlcAgentLicenceGenerator")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("reczek.krzysztof@gmail.com")]
 [assembly: AssemblyProduct("PlcAgentLicenceGenerator")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
