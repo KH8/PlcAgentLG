@@ -1,10 +1,13 @@
 ﻿<Window x:Class="PlcAgentLicenceGenerator.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="PlcAgent Licence Generator" Height="350" Width="700" ResizeMode="NoResize">
-    <Grid>
-        <Label Name="SignatureLabel" Content="Label" HorizontalAlignment="Left" Height="50" Margin="10,10,0,0" VerticalAlignment="Top" Width="674"/>
-        <Label x:Name="SignatureEncryptedLabel" Content="Label" HorizontalAlignment="Left" Height="50" Margin="10,60,0,0" VerticalAlignment="Top" Width="674"/>
-        <Label x:Name="SignatureDecryptedLabel" Content="Label" HorizontalAlignment="Left" Height="50" Margin="10,110,0,0" VerticalAlignment="Top" Width="674"/>
+        Title="PlcAgent Licence Generator" Height="160" Width="500" ResizeMode="NoResize">
+    <Grid HorizontalAlignment="Center">
+        <TextBlock Name="SignatureLabel" Text="Label" TextWrapping="Wrap" HorizontalAlignment="Left" Height="45" Margin="5,10,0,0" VerticalAlignment="Top" Width="470"/>
+        <Label Content="Licence Owner Name:" HorizontalAlignment="Left" Margin="0,53,0,0" VerticalAlignment="Top" Width="140"/>
+        <TextBox Name="NameTextBox" HorizontalAlignment="Left" Height="23" Margin="145,55,0,0" TextWrapping="Wrap" Text="noName" VerticalAlignment="Top" Width="320"/>
+        <Button Content="Generate" HorizontalAlignment="Left" Margin="390,83,0,0" VerticalAlignment="Top" Width="75" Click="GenerateLicence"/>
+        <Label Content="click to generate a licence file" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="5,83,0,0" VerticalAlignment="Top" FontSize="10" Width="380"/>
+
     </Grid>
 </Window>
