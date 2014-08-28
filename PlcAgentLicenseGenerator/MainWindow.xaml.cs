@@ -31,8 +31,6 @@ namespace PlcAgentLicenseGenerator
             SignatureLabel.Text = "PC Signature: \n" + _signature;
 
             _blowFishEncryptor = new BlowFish.BlowFish(HexKey.Value);
-
-            _encryptedSignature = _blowFishEncryptor.Encrypt_CTR(_signature);
         }
 
         #endregion
@@ -44,6 +42,11 @@ namespace PlcAgentLicenseGenerator
         {
             StatusLabel.Content = "...";
 
+            var nameToBeStored = NameTextBox.Text;
+            var dateToBeStored = DateTime.Now.ToString(CultureInfo.InvariantCulture);
+
+            _encryptedSignature = _blowFishEncryptor.Encrypt_CTR(_signature + nameToBeStored + dateToBeStored);
+
             // Create the new, empty data file.
             const string fileName = @"license.lic";
             if (File.Exists(fileName)) File.Delete(fileName);
@@ -53,9 +56,9 @@ namespace PlcAgentLicenseGenerator
             // Create the writer for data.
             var w = new BinaryWriter(fs);
             // Write data to Test.data.
-            w.Write(NameTextBox.Text);
+            w.Write(nameToBeStored);
             w.Write(_encryptedSignature);
-            w.Write(DateTime.Now.ToString(CultureInfo.InvariantCulture));
+            w.Write(dateToBeStored);
 
             w.Close();
             fs.Close();
@@ -67,11 +70,12 @@ namespace PlcAgentLicenseGenerator
 
             var storedName = r.ReadString();
             var storedSignature = r.ReadString();
+            var storedDate = r.ReadString();
 
             r.Close();
             fs.Close();
 
-            if (Equals(_signature, _blowFishEncryptor.Decrypt_CTR(storedSignature)))
+            if (Equals(_signature + storedName + storedDate, _blowFishEncryptor.Decrypt_CTR(storedSignature)))
                 StatusLabel.Content = "license file has been created for: " + storedName;
             else
             {
