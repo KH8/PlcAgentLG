@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.Globalization;
+using System.IO;
 using System.Windows;
 using PlcAgentLicenseGenerator.Signature;
 
@@ -53,6 +55,7 @@ namespace PlcAgentLicenseGenerator
             // Write data to Test.data.
             w.Write(NameTextBox.Text);
             w.Write(_encryptedSignature);
+            w.Write(DateTime.Now.ToString(CultureInfo.InvariantCulture));
 
             w.Close();
             fs.Close();
